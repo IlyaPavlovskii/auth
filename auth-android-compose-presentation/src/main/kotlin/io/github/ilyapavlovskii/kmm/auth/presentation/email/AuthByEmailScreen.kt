@@ -34,6 +34,7 @@ fun AuthByEmailScreen(
                     arguments = action.arguments,
                     onCancel = viewModel::actionWithErrorHandled,
                 )
+
             AuthByEmailViewState.Action.NavigateToTermsOfConditions ->
                 navigateToTermsOfConditions()
         }

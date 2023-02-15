@@ -20,4 +20,5 @@
     <string name="auth__auth_by_email_user_not_found">User not found. Please, check your email and try again</string>
     <string name="dialog__info_title">Info</string>
     <string name="dialog__info_cancel_button">Cancel</string>
+    <string name="auth__sign_in_with_phone">Sign in with Phone</string>
 </resources>

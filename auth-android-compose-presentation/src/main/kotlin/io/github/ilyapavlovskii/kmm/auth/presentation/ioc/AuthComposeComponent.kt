@@ -1,10 +1,11 @@
 package io.github.ilyapavlovskii.kmm.auth.presentation.ioc
 
-import io.github.ilyapavlovskii.kmm.koin.Component
 import io.github.ilyapavlovskii.kmm.auth.domain.mvi.email.AuthorizationEmailRedux
 import io.github.ilyapavlovskii.kmm.auth.presentation.email.AuthByEmailViewModel
 import io.github.ilyapavlovskii.kmm.auth.presentation.email.AuthByEmailViewState
 import io.github.ilyapavlovskii.kmm.auth.presentation.email.AuthByEmailViewStateConverter
+import io.github.ilyapavlovskii.kmm.auth.presentation.entry.AuthScreenViewModel
+import io.github.ilyapavlovskii.kmm.koin.Component
 import net.humans.kmm.mvi.ViewStateConverter
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
@@ -33,5 +34,6 @@ object AuthComposeComponent : Component {
                 viewStateConverter = get(named<AuthorizationEmailRedux>()),
             )
         }
+        viewModel { AuthScreenViewModel() }
     }
 }

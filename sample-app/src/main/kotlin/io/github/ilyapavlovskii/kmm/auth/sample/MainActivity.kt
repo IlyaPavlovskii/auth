@@ -3,27 +3,37 @@ package io.github.ilyapavlovskii.kmm.auth.sample
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
+import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
-import io.github.ilyapavlovskii.kmm.auth.presentation.email.AuthByEmailScreen
+import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
+import io.github.ilyapavlovskii.kmm.auth.presentation.navigation.AuthNavigationGraph
 import io.github.ilyapavlovskii.kmm.auth.ui.AuthTheme
 
 internal class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             AuthTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
+                val navController = rememberNavController()
+                Scaffold(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    AuthByEmailScreen(
-                        onBackClick = { finish() },
+                    contentWindowInsets = WindowInsets(top = 0.dp),
+                ) { innerPadding ->
+                    AuthNavigationGraph(
+                        navController = navController,
                         authSuccess = {},
                         navigateToTermsOfConditions = {},
+                        modifier = Modifier
+                            .padding(innerPadding)
+                            .background(MaterialTheme.colorScheme.surface)
                     )
                 }
             }

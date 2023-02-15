@@ -29,6 +29,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.navigation)
     implementation(libs.io.github.ilyapavlovskii.kmm.koin)
     implementation(libs.net.humans.kmm.mvi.core)
     implementation(libs.koin.android)
