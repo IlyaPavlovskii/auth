@@ -21,7 +21,7 @@ class AuthorizationEmailReducer : ComplexReducer<State, Message, Effect> {
             )
 
         Message.ActionHandled -> state.copy(action = null).pure()
-        Message.ErrorProcessed -> state.copy(error = null).pure()
+        Message.ErrorHandled -> state.copy(error = null).pure()
         is Message.UpdateTypedEmailValue -> state.copy(
             typedEmailValue = msg.typedEmailValue,
             error = null,

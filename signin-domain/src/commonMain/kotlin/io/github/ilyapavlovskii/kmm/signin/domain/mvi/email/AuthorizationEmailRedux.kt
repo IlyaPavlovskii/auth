@@ -89,7 +89,7 @@ object AuthorizationEmailRedux {
         ) : Message()
 
         object ActionHandled : Message()
-        object ErrorProcessed : Message()
+        object ErrorHandled : Message()
     }
 
     sealed class Effect {

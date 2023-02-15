@@ -6,8 +6,8 @@ import net.humans.kmm.mvi.ViewStateConverter
 
 internal class SignInEmailViewStateConverter : ViewStateConverter<State, SignInEmailViewState> {
     override fun convert(state: State): SignInEmailViewState {
+        val viewState = state.toAuthByEmailScreenViewStatePure()
         return state.action?.let { safeAction ->
-            val viewState = state.toAuthByEmailScreenViewStatePure()
             when (safeAction) {
                 State.Action.Processing -> viewState.copy(
                     processing = true,
@@ -45,7 +45,6 @@ internal class SignInEmailViewStateConverter : ViewStateConverter<State, SignInE
                     )
             }
         } ?: state.error?.let { safeError ->
-            val viewState = state.toAuthByEmailScreenViewStatePure()
             when (safeError) {
                 is State.Error.InvalidEmail -> viewState.copy(
                     action = null,
@@ -86,7 +85,7 @@ internal class SignInEmailViewStateConverter : ViewStateConverter<State, SignInE
                     error = null,
                 )
             }
-        } ?: state.toAuthByEmailScreenViewStatePure()
+        } ?: viewState
     }
 
     private fun State.toAuthByEmailScreenViewStatePure():

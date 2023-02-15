@@ -31,16 +31,17 @@ internal class SignInEmailViewModel(
     fun emailChanged(email: String) = engine.send(Message.UpdateTypedEmailValue(email))
     fun passwordChanged(password: String) = engine.send(Message.UpdateTypedPasswordValue(password))
     fun authorize() = engine.send(Message.Authorize)
+    fun termsOfConditionSelected() = engine.send(Message.SelectTermsOfConditions)
+    fun actionWithErrorHandled() {
+        engine.send(Message.ActionHandled)
+        engine.send(Message.ErrorHandled)
+    }
+    fun restorePassword() = engine.send(Message.SendRestorePassword)
     fun passwordVisibilityChanged(visible: Boolean) =
         engine.send(Message.UpdatePasswordVisibilityValue(visible))
 
-    fun restorePassword() = engine.send(Message.SendRestorePassword)
     fun termsOfConditionChange(checked: Boolean) =
         engine.send(Message.UpdateTermsOfConditionValue(checked))
-
-    fun termsOfConditionSelected() {
-        //engine.send(Message.)
-    }
 
     companion object {
         private const val TAG = "SignInEmailViewModel"

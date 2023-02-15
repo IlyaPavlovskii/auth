@@ -21,7 +21,9 @@ internal class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     SignInEmailScreen(
-                        onBackClick = { finish() }
+                        onBackClick = { finish() },
+                        authSuccess = {},
+                        navigateToTermsOfConditions = {},
                     )
                 }
             }
