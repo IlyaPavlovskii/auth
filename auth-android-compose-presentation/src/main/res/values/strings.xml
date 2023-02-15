@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="change_theme__back_content_description">Change theme back button</string>
+    <string name="change_theme__title">App theme</string>
+    <string name="change_theme__light_theme">Light theme</string>
+    <string name="change_theme__dark_theme">Dark theme</string>
+    <string name="change_theme__system_theme">System theme</string>
+    <string name="auth__sign_in_with_email">Sign In with Email</string>
+    <string name="auth__auth_by_email_hint">Email</string>
+    <string name="auth__auth_by_email_password_hint">Password</string>
+    <string name="auth__auth_by_email_in_terms_of_conditions">Terms of Conditions</string>
+    <string name="auth__auth_by_email_restore_password_button">Restore password</string>
+    <string name="auth__auth_by_email_in_continue_button">Continue</string>
+    <string name="auth__auth_by_email_reset_message_pattern">Reset password message sent to email: %1$s</string>
+    <string name="auth__auth_by_email_wrong_password">Wrong password. Please, check your password and try again.</string>
+    <string name="auth__auth_by_email_error_message">Invalid email</string>
+    <string name="auth__auth_by_email_auth_failed">Authorization failed. Please, check your connection and try again.</string>
+    <string name="auth__auth_by_email_invalid_password">Your password is too short(must contain at least 8 characters) and might contains only characters or digits.</string>
+    <string name="auth__auth_by_email_reset_password_failed">Reset password failed. Please, check your connection and try again</string>
+    <string name="auth__auth_by_email_user_not_found">User not found. Please, check your email and try again</string>
+    <string name="dialog__info_title">Info</string>
+    <string name="dialog__info_cancel_button">Cancel</string>
+</resources>

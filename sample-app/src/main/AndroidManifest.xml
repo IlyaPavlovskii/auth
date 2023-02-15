@@ -2,7 +2,7 @@
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="io.github.ilyapavlovskii.kmm.signin.sample">
+    package="io.github.ilyapavlovskii.kmm.auth.sample">
 
     <application
         android:allowBackup="true"
@@ -10,13 +10,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".SignInApplication"
+        android:name="io.github.ilyapavlovskii.kmm.auth.sample.AuthApplication"
         android:forceDarkAllowed="true"
         android:theme="@style/Theme.ChangeThemeSample"
         tools:targetApi="q"
         >
         <activity
-            android:name=".MainActivity"
+            android:name="io.github.ilyapavlovskii.kmm.auth.sample.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.ChangeThemeSample"

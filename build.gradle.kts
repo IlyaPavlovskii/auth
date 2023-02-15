@@ -41,7 +41,7 @@ subprojects {
             url = uri("https://repo.repsy.io/mvn/chrynan/public")
         }
     }
-    group = "io.github.ilyapavlovskii.kmm.signin"
+    group = "io.github.ilyapavlovskii.kmm.auth"
     version = "2023.02.14"
 
     setupJavaTarget(this)

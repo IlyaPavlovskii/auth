@@ -21,13 +21,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/auth-android-compose-presentation" />
+            <option value="$PROJECT_DIR$/auth-domain" />
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/common" />
             <option value="$PROJECT_DIR$/firebase-auth-ktx" />
             <option value="$PROJECT_DIR$/sample-app" />
             <option value="$PROJECT_DIR$/sample-app-ui" />
-            <option value="$PROJECT_DIR$/signin-android-compose-presentation" />
-            <option value="$PROJECT_DIR$/signin-domain" />
           </set>
         </option>
       </GradleProjectSettings>

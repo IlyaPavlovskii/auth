@@ -1,12 +1,20 @@
 plugins {
-    id("android-app-convention")
-    id("com.google.gms.google-services")
+    id("android-library-convention")
+    id("publish-library-convention")
 }
 
 android {
-    namespace = "io.github.ilyapavlovskii.kmm.auth.sample"
-    defaultConfig {
-        applicationId = "io.github.ilyapavlovskii.kmm.auth.sample"
+    namespace = "io.github.ilyapavlovskii.kmm.auth.presentation"
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.2"
+    }
+    packagingOptions {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
@@ -14,6 +22,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -21,16 +30,14 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.io.github.ilyapavlovskii.kmm.koin)
+    implementation(libs.net.humans.kmm.mvi.core)
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
     implementation(libs.koin.core)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.firebase.auth)
-    implementation(project(":auth-android-compose-presentation"))
-    implementation(project(":auth-domain"))
 
-    implementation(project(":sample-app-ui"))
-    implementation(projects.firebaseAuthKtx)
+    implementation(projects.common)
+    implementation(projects.authDomain)
+    implementation(projects.sampleAppUi)
 
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)

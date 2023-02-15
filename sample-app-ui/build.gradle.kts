@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "io.github.ilyapavlovskii.kmm.signin.ui"
+    namespace = "io.github.ilyapavlovskii.kmm.auth.ui"
     buildFeatures {
         compose = true
     }
