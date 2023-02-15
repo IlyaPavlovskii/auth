@@ -1,5 +1,6 @@
 plugins {
     id("android-app-convention")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -24,9 +25,12 @@ dependencies {
     implementation(libs.koin.compose)
     implementation(libs.koin.core)
     implementation(libs.androidx.appcompat)
-//    implementation(project(":change-theme-android-compose-presentation"))
-//    implementation(project(":change-theme-domain"))
+    implementation(libs.firebase.auth)
+
+    implementation(project(":signin-android-compose-presentation"))
+    implementation(project(":signin-domain"))
     implementation(project(":sample-app-ui"))
+    implementation(projects.firebaseAuthKtx)
 
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)

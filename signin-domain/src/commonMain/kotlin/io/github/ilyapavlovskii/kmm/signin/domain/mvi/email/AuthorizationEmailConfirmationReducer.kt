@@ -8,7 +8,7 @@ import net.humans.kmm.mvi.Return
 import net.humans.kmm.mvi.pure
 import net.humans.kmm.mvi.withEffect
 
-class AuthorizationEmailConfirmationReducer : ComplexReducer<State, Message, Effect> {
+internal class AuthorizationEmailConfirmationReducer : ComplexReducer<State, Message, Effect> {
     override fun invoke(state: State, msg: Message): Return<State, Effect> {
         return when (msg) {
             Message.ActionHandled -> state.copy(action = null).pure()

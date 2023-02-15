@@ -24,6 +24,7 @@ class AuthorizationEmailReducer : ComplexReducer<State, Message, Effect> {
         Message.ErrorProcessed -> state.copy(error = null).pure()
         is Message.UpdateTypedEmailValue -> state.copy(
             typedEmailValue = msg.typedEmailValue,
+            error = null,
         ).pure()
 
         Message.SendRestorePassword -> state.withEffect(
@@ -31,7 +32,8 @@ class AuthorizationEmailReducer : ComplexReducer<State, Message, Effect> {
         )
 
         is Message.UpdateTypedPasswordValue -> state.copy(
-            typedPasswordValue = msg.typedPasswordValue
+            typedPasswordValue = msg.typedPasswordValue,
+            error = null,
         ).pure()
 
         is Message.AuthorizationSuccess -> state.copy(
@@ -42,28 +44,27 @@ class AuthorizationEmailReducer : ComplexReducer<State, Message, Effect> {
         ).pure()
 
         is Message.InvalidEmailHandled -> state.copy(
+            action = null,
             error = State.Error.InvalidEmail,
-            action = null,
         ).pure()
-
         Message.AuthorizationFailed -> state.copy(
-            error = State.Error.AuthorizationFailed,
             action = null,
+            error = State.Error.AuthorizationFailed,
         ).pure()
 
         is Message.InvalidPasswordHandled -> state.copy(
-            error = State.Error.InvalidPasswordHandled,
             action = null,
+            error = State.Error.InvalidPasswordHandled,
         ).pure()
 
         Message.ResetPasswordFailed -> state.copy(
-            error = State.Error.ResetPasswordFailed,
             action = null,
+            error = State.Error.ResetPasswordFailed
         ).pure()
 
         is Message.ResetPasswordSuccess -> state.copy(
-            error = null,
             action = State.Action.ResetPasswordSuccess(msg.email),
+            error = null,
         ).pure()
 
         Message.UserNotRegistered -> state.copy(
@@ -80,7 +81,12 @@ class AuthorizationEmailReducer : ComplexReducer<State, Message, Effect> {
         ).pure()
 
         Message.WrongPasswordHandled -> state.copy(
-            action = State.Action.WrongPasswordHandled
+            action = State.Action.WrongPasswordHandled,
+        ).pure()
+
+        Message.SelectTermsOfConditions -> state.copy(
+            action = State.Action.NavigateToTermsOfConditions,
+            error = null,
         ).pure()
     }
 }

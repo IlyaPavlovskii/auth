@@ -4,18 +4,18 @@ import io.github.ilyapavlovskii.kmm.common.domain.model.Email
 
 object AuthorizationEmailRedux {
     data class State(
-        val typedEmailValue: String?,
-        val typedPasswordValue: String?,
+        val typedEmailValue: String? = null,
+        val typedPasswordValue: String? = null,
         val termsOfConditionChecked: Boolean = false,
-        val passwordVisible: Boolean,
+        val passwordVisible: Boolean = false,
         val error: Error? = null,
         val action: Action? = null,
     ) {
 
         fun isContinueActionAvailable(): Boolean = !typedEmailValue.isNullOrBlank() &&
-                !typedPasswordValue.isNullOrBlank() &&
-                termsOfConditionChecked &&
-                error == null
+            !typedPasswordValue.isNullOrBlank() &&
+            termsOfConditionChecked &&
+            error == null
 
         sealed class Error {
             object InvalidEmail : Error()
@@ -26,7 +26,11 @@ object AuthorizationEmailRedux {
         }
 
         sealed class Action {
+
             object Processing : Action()
+
+            object NavigateToTermsOfConditions : Action()
+
             data class SendConfirmationCodeComplete(
                 val email: Email,
             ) : Action()
@@ -34,6 +38,7 @@ object AuthorizationEmailRedux {
             data class ResetPasswordSuccess(
                 val email: Email,
             ) : Action()
+
             object WrongPasswordHandled : Action()
         }
     }
@@ -52,6 +57,8 @@ object AuthorizationEmailRedux {
         data class UpdateTermsOfConditionValue(
             val termsOfConditionChecked: Boolean
         ) : Message()
+
+        object SelectTermsOfConditions : Message()
 
         data class UpdatePasswordVisibilityValue(
             val visible: Boolean,

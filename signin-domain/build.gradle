@@ -3,21 +3,9 @@ plugins {
     id("publish-library-convention")
 }
 
-android {
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.2"
-    }
-}
-
 dependencies {
-    androidMainImplementation(libs.androidx.appcompat)
-    androidMainImplementation(libs.androidx.compose.runtime)
     androidMainImplementation(libs.koin.android)
     androidMainImplementation(libs.koin.core)
-    androidMainImplementation(libs.koin.compose)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.material3)

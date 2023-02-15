@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "io.github.ilyapavlovskii.kmm.change.theme.presentation"
+    namespace = "io.github.ilyapavlovskii.kmm.signin.presentation"
     buildFeatures {
         compose = true
     }
@@ -22,6 +22,7 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.activity.compose)
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
@@ -34,10 +35,9 @@ dependencies {
     implementation(libs.koin.compose)
     implementation(libs.koin.core)
 
-    implementation(libs.androidx.appcompat)
-
-    implementation(project(":change-theme-domain"))
-    //implementation(project(":sample-app-ui"))
+    implementation(projects.common)
+    implementation(projects.signinDomain)
+    implementation(projects.sampleAppUi)
 
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)

@@ -8,6 +8,7 @@ buildscript {
         classpath(libs.plugin.kotlin.gradle)
         classpath(libs.plugin.android.gradle)
         classpath(":build-logic")
+        classpath("com.google.gms:google-services:4.3.15")
     }
 }
 

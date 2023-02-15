@@ -74,10 +74,6 @@ object AuthorizationPhoneRedux {
             val checked: Boolean
         ) : Message()
 
-        data class UpdatePhoneCountryCode(
-            val phoneCodeE164: String,
-        ) : Message()
-
         object SMSSuccessfullySent : Message()
         object ConfirmSMSCode : Message()
 

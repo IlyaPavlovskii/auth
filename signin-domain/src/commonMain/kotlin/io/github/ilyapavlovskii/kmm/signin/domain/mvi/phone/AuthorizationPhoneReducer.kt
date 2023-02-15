@@ -24,7 +24,7 @@ internal class AuthorizationPhoneReducer(
 
             Message.SMSSuccessfullySent -> when (state) {
                 is State.InputPhone -> State.InputSMSCode(
-                    phone = Phone.E164("${state.selectedPhoneCountryCode.phoneCodeE164}${state.typedPhoneValue}"),
+                    phone = Phone.MSISDN("${state.typedPhoneValue}"),
                     typedSMSCode = null,
                     processing = false,
                     smsCodeMaxLength = smsCodeMaxLengthProvider.getSMSMaxCodeLength(),
@@ -43,7 +43,7 @@ internal class AuthorizationPhoneReducer(
                 is State.InputPhone -> if (state.isContinuedAvailable()) {
                     state.copy(processing = true).withEffect(
                         Effect.SendSMSToPhoneNumber(
-                            phoneNumber = "${state.selectedPhoneCountryCode.phoneCodeE164}${state.typedPhoneValue}",
+                            phoneNumber = "${state.typedPhoneValue}",
                             authByPhoneWrapper = msg.authByPhoneWrapper,
                         )
                     )
@@ -164,25 +164,6 @@ internal class AuthorizationPhoneReducer(
             is Message.UpdateTermsOfConditionState -> when (state) {
                 is State.InputPhone -> state.copy(
                     termsOfConditionChecked = msg.checked,
-                ).pure()
-
-                is State.InputSMSCode -> state.pure()
-            }
-
-            is Message.UpdateInitialState -> when (state) {
-                is State.InputPhone -> state.copy(
-                    phoneCountryCodes = msg.phoneCountryCodes,
-                    selectedPhoneCountryCode = msg.selectedPhoneCountryCode,
-                ).pure()
-
-                is State.InputSMSCode -> state.pure()
-            }
-
-            is Message.UpdatePhoneCountryCode -> when (state) {
-                is State.InputPhone -> state.copy(
-                    selectedPhoneCountryCode = state.phoneCountryCodes.first {
-                        it.phoneCodeE164.lowercase() == msg.phoneCodeE164.lowercase()
-                    },
                 ).pure()
 
                 is State.InputSMSCode -> state.pure()
