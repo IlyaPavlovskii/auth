@@ -6,6 +6,9 @@ import io.github.ilyapavlovskii.kmm.auth.domain.mvi.email.AuthorizationEmailRedu
 import io.github.ilyapavlovskii.kmm.auth.domain.mvi.email.AuthorizationEmailRedux
 import io.github.ilyapavlovskii.kmm.auth.domain.mvi.email.ResetPasswordEffectHandler
 import io.github.ilyapavlovskii.kmm.auth.domain.mvi.email.SendAuthRequestEffectHandler
+import io.github.ilyapavlovskii.kmm.auth.domain.mvi.phone.AuthorizationPhoneEffectHandler
+import io.github.ilyapavlovskii.kmm.auth.domain.mvi.phone.AuthorizationPhoneReducer
+import io.github.ilyapavlovskii.kmm.auth.domain.mvi.phone.AuthorizationPhoneRedux
 import io.github.ilyapavlovskii.kmm.auth.domain.validator.PasswordValidator
 import net.humans.kmm.mvi.ComplexReducer
 import net.humans.kmm.mvi.CoroutineEffectHandler

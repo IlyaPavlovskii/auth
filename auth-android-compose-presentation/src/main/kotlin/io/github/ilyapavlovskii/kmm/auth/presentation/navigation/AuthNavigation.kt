@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import io.github.ilyapavlovskii.kmm.auth.presentation.email.AuthByEmailScreen
 import io.github.ilyapavlovskii.kmm.auth.presentation.entry.AuthActionType
 import io.github.ilyapavlovskii.kmm.auth.presentation.entry.AuthScreen
+import io.github.ilyapavlovskii.kmm.auth.presentation.phone.AuthByPhoneScreen
 
 val authRootRoute = "auth"
 
@@ -40,11 +41,25 @@ fun NavGraphBuilder.addAuthNavigationGraph(
     this.composable(authRootRoute) {
         AuthScreen(navController = navController)
     }
-    this.composable(AuthActionType.EMAIL.route) {
-        AuthByEmailScreen(
-            onBackClick = navController::popBackStack,
-            authSuccess = authSuccess,
-            navigateToTermsOfConditions = navigateToTermsOfConditions,
-        )
+    AuthActionType.values().forEach { authActionType ->
+        when (authActionType) {
+            AuthActionType.EMAIL ->
+                this.composable(AuthActionType.EMAIL.route) {
+                    AuthByEmailScreen(
+                        onBackClick = navController::popBackStack,
+                        authSuccess = authSuccess,
+                        navigateToTermsOfConditions = navigateToTermsOfConditions,
+                    )
+                }
+
+            AuthActionType.PHONE ->
+                this.composable(AuthActionType.PHONE.route) {
+                    AuthByPhoneScreen(
+                        onBackClick = navController::popBackStack,
+                        onAuthorizationSuccess = authSuccess,
+                        navigateToTermsOfConditions = navigateToTermsOfConditions,
+                    )
+                }
+        }
     }
 }

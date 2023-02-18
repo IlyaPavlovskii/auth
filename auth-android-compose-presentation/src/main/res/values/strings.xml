@@ -8,9 +8,9 @@
     <string name="auth__sign_in_with_email">Sign In with Email</string>
     <string name="auth__auth_by_email_hint">Email</string>
     <string name="auth__auth_by_email_password_hint">Password</string>
-    <string name="auth__auth_by_email_in_terms_of_conditions">Terms of Conditions</string>
+    <string name="auth__auth_terms_of_conditions">Terms of Conditions</string>
     <string name="auth__auth_by_email_restore_password_button">Restore password</string>
-    <string name="auth__auth_by_email_in_continue_button">Continue</string>
+    <string name="auth__auth_continue_button">Continue</string>
     <string name="auth__auth_by_email_reset_message_pattern">Reset password message sent to email: %1$s</string>
     <string name="auth__auth_by_email_wrong_password">Wrong password. Please, check your password and try again.</string>
     <string name="auth__auth_by_email_error_message">Invalid email</string>
@@ -21,4 +21,21 @@
     <string name="dialog__info_title">Info</string>
     <string name="dialog__info_cancel_button">Cancel</string>
     <string name="auth__sign_in_with_phone">Sign in with Phone</string>
+    <string name="auth__auth_by_phone_title">Sign in with Phone</string>
+    <string name="auth__auth_by_phone_hint">Phone</string>
+    <string name="auth__auth_by_phone_code_enter_placeholder_char">0</string>
+    <string name="auth__auth_by_phone_title_sms_code">Enter the digit code sent to you at %1$s.</string>
+    <string name="auth__auth_by_phone_error_failed_to_send_sms">Failed to send SMS message, please try again.</string>
+    <string name="auth__auth_by_phone_error_invalid_phone_number">Invalid phone number. Please, check it and try again.</string>
+    <string name="auth__auth_by_phone_error_incorrect_code_or_else">Failed authenticate. Please check your confirmation code and try again.</string>
+    <string name="auth__auth_by_phone_error_resend_confirmation_code">Failed to resend confirmation code. Please check your internet connection and try again.</string>
+    <string name="auth__resend_code_button_text">Resend code</string>
+    <string name="auth__auth_by_phone_confirmation_resend_code_available">Resend code available</string>
+    <string name="dialog__error_title">Error</string>
+    <string name="dialog__error_dismiss_button">Cancel</string>
+    <string name="auth__auth_by_phone_sms_code_dismiss">Retry</string>
+    <plurals name="auth__auth_by_phone_confirmation_resend_code_pattern">
+        <item quantity="one">Resend code will be available in %1$s second</item>
+        <item quantity="other">Resend code will be available in %1$s seconds</item>
+    </plurals>
 </resources>

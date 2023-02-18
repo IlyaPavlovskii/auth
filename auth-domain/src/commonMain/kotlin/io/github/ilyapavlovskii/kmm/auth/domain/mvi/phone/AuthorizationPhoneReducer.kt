@@ -43,7 +43,7 @@ internal class AuthorizationPhoneReducer(
                 is State.InputPhone -> if (state.isContinuedAvailable()) {
                     state.copy(processing = true).withEffect(
                         Effect.SendSMSToPhoneNumber(
-                            phoneNumber = "${state.typedPhoneValue}",
+                            phoneNumber = "+${state.typedPhoneValue}",
                             authByPhoneWrapper = msg.authByPhoneWrapper,
                         )
                     )
@@ -176,6 +176,13 @@ internal class AuthorizationPhoneReducer(
                     processing = false,
                     action = State.InputSMSCode.Action.AuthorizationSuccess,
                 ).pure()
+            }
+
+            Message.TermsOfConditionSelected -> when(state) {
+                is State.InputPhone -> state.copy(
+                    action = State.InputPhone.Action.NavigateToTermsOfCondition,
+                ).pure()
+                is State.InputSMSCode -> state.pure()
             }
         }
     }

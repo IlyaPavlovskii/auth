@@ -12,14 +12,15 @@
         android:supportsRtl="true"
         android:name="io.github.ilyapavlovskii.kmm.auth.sample.AuthApplication"
         android:forceDarkAllowed="true"
-        android:theme="@style/Theme.ChangeThemeSample"
-        tools:targetApi="q"
+        android:theme="@style/Theme.AuthThemeSample"
+        android:enableOnBackInvokedCallback="true"
+        tools:targetApi="tiramisu"
         >
         <activity
             android:name="io.github.ilyapavlovskii.kmm.auth.sample.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.ChangeThemeSample"
+            android:theme="@style/Theme.AuthThemeSample"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

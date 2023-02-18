@@ -37,7 +37,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import io.github.ilyapavlovskii.kmm.auth.presentation.utils.signInOutlinedTextFieldColors
+import io.github.ilyapavlovskii.kmm.auth.presentation.utils.authOutlinedTextFieldColors
 import io.github.ilyapavlovskii.kmm.auth.ui.AuthTheme
 import io.github.ilyapavlovskii.kmm.auth.presentation.R
 
@@ -106,7 +106,7 @@ internal fun AuthByEmailView(
                     onContinueClicked()
                 },
             ),
-            colors = signInOutlinedTextFieldColors(),
+            colors = authOutlinedTextFieldColors(),
         )
         (viewState.error as? AuthByEmailViewState.Error.Email)?.messageRes
             ?.let { stringResource(id = it) }
@@ -158,7 +158,7 @@ internal fun AuthByEmailView(
                     )
                 }
             },
-            colors = signInOutlinedTextFieldColors(),
+            colors = authOutlinedTextFieldColors(),
         )
         (viewState.error as? AuthByEmailViewState.Error.Password)?.messageRes
             ?.let { stringResource(id = it) }
@@ -182,7 +182,7 @@ internal fun AuthByEmailView(
                 colors = CheckboxDefaults.colors(
                     checkedColor = MaterialTheme.colorScheme.primary,
                     uncheckedColor = MaterialTheme.colorScheme.secondary,
-                    checkmarkColor = MaterialTheme.colorScheme.onBackground,
+                    checkmarkColor = MaterialTheme.colorScheme.background,
                 )
             )
             Text(
@@ -196,7 +196,7 @@ internal fun AuthByEmailView(
                         onClick = { onTermsOfConditionClicked() },
                     )
                     .padding(8.dp),
-                text = stringResource(id = R.string.auth__auth_by_email_in_terms_of_conditions),
+                text = stringResource(id = R.string.auth__auth_terms_of_conditions),
                 color = MaterialTheme.colorScheme.onBackground,
                 style = MaterialTheme.typography.labelLarge.copy(
                     textDecoration = TextDecoration.Underline,
@@ -240,7 +240,7 @@ internal fun AuthByEmailView(
             onClick = { onContinueClicked() },
         ) {
             Text(
-                text = stringResource(id =R.string.auth__auth_by_email_in_continue_button),
+                text = stringResource(id =R.string.auth__auth_continue_button),
                 color = MaterialTheme.colorScheme.background,
                 style = MaterialTheme.typography.labelLarge,
             )

@@ -35,10 +35,12 @@ dependencies {
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
     implementation(libs.koin.core)
+    implementation(libs.google.android.gms.play.services.auth.api.phone)
 
     implementation(projects.common)
     implementation(projects.authDomain)
     implementation(projects.sampleAppUi)
+    implementation(projects.firebaseAuthKtx)
 
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)

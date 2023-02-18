@@ -1,6 +1,7 @@
 package io.github.ilyapavlovskii.kmm.auth.sample
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -29,8 +30,12 @@ internal class MainActivity : ComponentActivity() {
                 ) { innerPadding ->
                     AuthNavigationGraph(
                         navController = navController,
-                        authSuccess = {},
-                        navigateToTermsOfConditions = {},
+                        authSuccess = {
+                            Log.d("MainActivity", "AuthSuccess")
+                        },
+                        navigateToTermsOfConditions = {
+                            Log.d("MainActivity", "navigateToTermsOfConditions")
+                        },
                         modifier = Modifier
                             .padding(innerPadding)
                             .background(MaterialTheme.colorScheme.surface)

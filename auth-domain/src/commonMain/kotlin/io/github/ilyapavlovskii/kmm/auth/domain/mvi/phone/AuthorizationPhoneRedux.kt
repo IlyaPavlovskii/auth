@@ -10,8 +10,8 @@ object AuthorizationPhoneRedux {
 
         data class InputPhone(
             val typedPhoneValue: String? = null,
-            val termsOfConditionChecked: Boolean,
-            val processing: Boolean,
+            val termsOfConditionChecked: Boolean = false,
+            val processing: Boolean = false,
             val action: Action? = null,
             val error: Error? = null,
         ) : State() {
@@ -20,7 +20,9 @@ object AuthorizationPhoneRedux {
                 !typedPhoneValue.isNullOrBlank() &&
                 termsOfConditionChecked
 
-            sealed class Action
+            sealed class Action {
+                object NavigateToTermsOfCondition : Action()
+            }
 
             sealed class Error {
                 object InvalidPhoneNumber : Error()
@@ -100,6 +102,7 @@ object AuthorizationPhoneRedux {
         ) : Message()
 
         object InputPhoneNumberProcessed : Message()
+        object TermsOfConditionSelected : Message()
     }
 
     sealed class Effect {

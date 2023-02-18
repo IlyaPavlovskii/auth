@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-internal fun signInOutlinedTextFieldColors() = ExposedDropdownMenuDefaults.outlinedTextFieldColors(
+internal fun authOutlinedTextFieldColors() = ExposedDropdownMenuDefaults.outlinedTextFieldColors(
     cursorColor = MaterialTheme.colorScheme.primary,
     focusedBorderColor = MaterialTheme.colorScheme.primary,
     unfocusedBorderColor = MaterialTheme.colorScheme.primary,

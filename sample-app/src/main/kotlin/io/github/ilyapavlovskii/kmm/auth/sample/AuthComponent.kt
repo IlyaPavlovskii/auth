@@ -5,6 +5,8 @@ import io.github.ilyapavlovskii.kmm.firebase.auth.model.ioc.FirebaseMultiplatfor
 import io.github.ilyapavlovskii.kmm.koin.Component
 import io.github.ilyapavlovskii.kmm.auth.domain.ioc.FirebaseAuthDomainComponent
 import io.github.ilyapavlovskii.kmm.auth.presentation.ioc.AuthComposeComponent
+import io.github.ilyapavlovskii.kmm.common.domain.ioc.CommonMultiplatformDomainComponent
+import net.humans.kmm.mvi.signin.domain.ioc.FirebaseAuthDomainImplComponent
 import org.koin.core.module.Module
 
 internal object AuthComponent : Component {
@@ -13,8 +15,10 @@ internal object AuthComponent : Component {
 
     private fun components(): List<Component> = listOf(
         AuthComposeComponent,
+        CommonMultiplatformDomainComponent,
         FirebaseMultiplatformComponent,
         FirebaseMultiplatformModule,
         FirebaseAuthDomainComponent,
+        FirebaseAuthDomainImplComponent,
     )
 }

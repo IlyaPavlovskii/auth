@@ -29,6 +29,7 @@ dependencies {
     implementation(libs.firebase.auth)
     implementation(project(":auth-android-compose-presentation"))
     implementation(project(":auth-domain"))
+    implementation(project(":common"))
 
     implementation(project(":sample-app-ui"))
     implementation(projects.firebaseAuthKtx)
