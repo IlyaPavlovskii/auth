@@ -44,6 +44,6 @@ internal class AuthByEmailViewModel(
         engine.send(Message.UpdateTermsOfConditionValue(checked))
 
     companion object {
-        private const val TAG = "SignInEmailViewModel"
+        private const val TAG = "AuthByEmailViewModel"
     }
 }
